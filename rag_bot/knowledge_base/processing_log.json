@@ -1,0 +1,9 @@
+{
+  "input_directory": "original_texts",
+  "output_directory": "knowledge_base",
+  "config_used": "terms_map.json",
+  "processed_date": "2026-02-27",
+  "files_processed": 30,
+  "files_copied": 0,
+  "status": "completed"
+}

@@ -1,0 +1,11 @@
+services:
+  rag-bot:
+    build:
+      context: .
+      dockerfile: Dockerfile.pytorch
+    container_name: rag-telegram-bot
+    env_file:
+      - .env
+    volumes:
+      - ./rag_bot/vector_index:/app/rag_bot/vector_index
+    restart: unless-stopped

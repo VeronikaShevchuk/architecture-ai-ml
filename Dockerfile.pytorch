@@ -1,0 +1,17 @@
+FROM python:3.9-slim
+
+WORKDIR /app
+
+# Сначала устанавливаем torch с CPU индексом
+RUN pip install --no-cache-dir torch==2.0.1 --index-url https://download.pytorch.org/whl/cpu
+
+# Затем остальные пакеты
+COPY rag_bot/requirements-docker.txt ./requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY rag_bot/ ./rag_bot/
+COPY .env .
+
+WORKDIR /app/rag_bot
+
+CMD ["python", "telegram_bot_secure.py"]

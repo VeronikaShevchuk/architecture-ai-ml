@@ -1,0 +1,9 @@
+services:
+  rag-bot:
+    build: .
+    container_name: rag-telegram-bot
+    environment:
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+    volumes:
+      - ./vector_index:/app/vector_index
+    restart: unless-stopped
